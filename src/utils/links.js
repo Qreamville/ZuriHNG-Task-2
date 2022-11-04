@@ -43,3 +43,30 @@ export const links = [
     isPage: true,
   },
 ];
+
+export const inputs = [
+  {
+    id: 1,
+    className: "input-one",
+    id_name: "first_name",
+    placeholder: "Enter your first name",
+    label: "First name",
+    type: "text",
+  },
+  {
+    id: 2,
+    className: "input-two",
+    id_name: "last_name",
+    placeholder: "Enter your last name",
+    label: "Last name",
+    type: "text",
+  },
+  {
+    id: 3,
+    className: "input-three",
+    id_name: "email",
+    placeholder: "yourname@email.com",
+    label: "Email",
+    type: "email",
+  },
+];
