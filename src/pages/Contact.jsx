@@ -1,19 +1,32 @@
-import React from "react";
+import { useState } from "react";
 import { useRef } from "react";
 import Input from "../components/Input";
 import { inputs } from "../utils/links";
 
 const Contact = () => {
+  const [isEmpty, setIsEmpty] = useState(false);
   const messageRef = useRef();
 
   const onsubmit = (event) => {
     event.preventDefault();
+    if (!messageRef.current[3].value) {
+      setIsEmpty((prev) => {
+        return (prev = true);
+      });
+      return;
+    }
+
+    setIsEmpty((prev) => {
+      return (prev = false);
+    });
+
     alert(`
-    First Name: ${messageRef.current[0].value}
-    Last Name: ${messageRef.current[1].value}
-    Email: ${messageRef.current[2].value}
+    First Name: ${messageRef.current[0].value || "Nil"}
+    Last Name: ${messageRef.current[1].value || "Nil"}
+    Email: ${messageRef.current[2].value || "Nil"}
     Message: ${messageRef.current[3].value}
     `);
+    window.location.reload(false);
   };
 
   return (
@@ -46,9 +59,15 @@ const Contact = () => {
               name="message"
               id="message"
               placeholder="Send me a message and I'll reply you as soon as possible..."
-              required
-              className="h-[132px] min-h-[132px] max-h-[132px] border border-[#D0D5DD] rounded-lg py-2 px-3 outline-none focus:outline-[#84CAFF] focus:border-none"
+              className={`h-[132px] min-h-[132px] max-h-[132px] border-[#D0D5DD] rounded-lg py-2 px-3 outline-none focus:outline-[#84CAFF] focus:border-none invalid:bg-[ #F83F23] ${
+                isEmpty ? "outline-[#f83f23] border-none" : "border"
+              }`}
             ></textarea>
+            {isEmpty && (
+              <p className="text-[#F83F23] text-sm font-medium">
+                Please enter a message
+              </p>
+            )}
           </div>
           <div className="input-five space-x-3">
             <input

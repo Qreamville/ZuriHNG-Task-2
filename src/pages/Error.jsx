@@ -1,8 +1,10 @@
 import React from "react";
 import { BsArrowLeft } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Error = () => {
+  const navigate = useNavigate();
+
   return (
     <main className="grid place-items-center my-44 p-2">
       <div>
@@ -16,7 +18,7 @@ const Error = () => {
         <div className="flex flex-col-reverse gap-2 md:flex-row text-center">
           <button
             className="btn__back flex items-center gap-x-2 text-center justify-center"
-            onClick={history.back()}
+            onClick={() => navigate(-1)}
           >
             <BsArrowLeft />
             <span>Go back</span>
