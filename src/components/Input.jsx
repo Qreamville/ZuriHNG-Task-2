@@ -14,7 +14,6 @@ const Input = ({ item }) => {
         type={item.type}
         name={item.id_name}
         placeholder={item.placeholder}
-        required
         className="border border-[#D0D5DD] rounded-lg py-2 px-3 outline-none focus:outline-[#84CAFF] focus:border-none"
       />
     </div>
