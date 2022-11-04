@@ -26,7 +26,6 @@ const Contact = () => {
     Email: ${messageRef.current[2].value || "Nil"}
     Message: ${messageRef.current[3].value}
     `);
-    window.location.reload(false);
   };
 
   return (
